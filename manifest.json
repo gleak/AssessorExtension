@@ -1,0 +1,40 @@
+{
+  "manifest_version":2,
+  "name": "Selenium IDE PageObject",
+  "version": "1.0.0",
+  "icons": {
+    "70": "icons/icon_70.png",
+    "128": "icons/icon_128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/icon_menu16.png",
+      "32": "icons/icon_menu32.png",
+      "64": "icons/icon_menu64.png"
+    },
+    "default_title": "Selenium IDE - Ext"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "contextMenus",
+    "downloads",
+    "webNavigation",
+    "notifications",
+    "storage",
+    "debugger",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>"],
+      "js": [
+        "utils.js",    
+        "ExtensionSeleniumController.js","ExtensionSeleniumView.js","app.js"],
+      "css": ["css/app.css"],
+      "match_about_blank": true,
+      "all_frames": true
+    }
+  ]
+}
