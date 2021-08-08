@@ -99,9 +99,9 @@ class ExtensionSeleniumView{
                 </div>    
                 <br>
                 <div class='text-center'>
-                    <input type='button' class='seleniumExtension-btn seleniumExtension-btn-success' id='${this.__getIdBtnConfirm()}' value='Conferma'>
+                    <input type='button' class='seleniumExtension-btn seleniumExtension-btn-success' id='${this.__getIdBtnConfirm()}' value='Confirm'>
                     &nbsp;&nbsp;
-                    <input type='button' class='seleniumExtension-btn seleniumExtension-btn-danger' id='${this.__getIdBtnCancel()}' value='Annulla'>
+                    <input type='button' class='seleniumExtension-btn seleniumExtension-btn-danger' id='${this.__getIdBtnCancel()}' value='Cancel'>
                 </div>
             </div>
         </div>`;
