@@ -1,39 +1,44 @@
-document.addEventListener('load',function(){
+let __SeleniumIDEExtController = null;
+let __SeleniumIDEView = null;
 
-  console.log("Load");
+console.log("Selenium IDE Script loaded");
 
-  const controller = new ExtensionSeleniumController('{a6fd85ed-e919-4a43-a5af-8da18bda539f}'); //Firefox KEY
-  controller.activateListenerHealth();
+document.addEventListener('keydown',(event)=>{
+  let name = event.key;
+  switch(name){
+    case "F8":
+      openModalPO();
+    break;
+    case "F4":
+      stopRecordingPO();
+    break;
+    default:
+      console.log(name);
+  }  
+},true);
 
-  const view = new ExtensionSeleniumView(controller);
 
-  document.addEventListener('keydown',(event)=>{
-    let name = event.key;
-    switch(name){
-      case "F8":
-        openModalPO();
-      break;
-      case "F4":
-        stopRecordingPO();
-      break;
-      default:
-        console.log(name);
-    }
-    
-  },false);
+function openModalPO(){  
+  let checkRecording = document.getElementById('selenium-ide-indicator');
+  if(checkRecording==null){
+    alert("The recording is not active!");
+    return;
+  }  
+  checkInitialization();
+  __SeleniumIDEView.openModal();
+}
 
-  function openModalPO(){
-    let checkRecording = document.getElementById('selenium-ide-indicator');
-    if(checkRecording==null){
-      alert("La registrazione non è attiva!");
-      return;
-    }  
-    view.openModal();
+function stopRecordingPO(){
+  checkInitialization();
+  __SeleniumIDEExtController.stopRecordPO();
+}
+
+function checkInitialization(){
+  if(__SeleniumIDEExtController==null){
+    __SeleniumIDEExtController = new ExtensionSeleniumController('{a6fd85ed-e919-4a43-a5af-8da18bda539f}'); //Firefox KEY
+    __SeleniumIDEExtController.activateListenerHealth();
   }
-
-  function stopRecordingPO(){
-    controller.stopRecordPO();
+  if(__SeleniumIDEView==null){
+    __SeleniumIDEView = new ExtensionSeleniumView(__SeleniumIDEExtController);
   }
-
-  console.log("Init Complete");
-});
+}
