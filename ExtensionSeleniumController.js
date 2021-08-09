@@ -103,7 +103,7 @@ class ExtensionSeleniumController{
 
     setStartingCommands(commands){
         this.startingCommand = commands;
-        console.log(commands);
+        //console.log(commands);
     }
 
     __getStartingCommands(){
@@ -121,8 +121,8 @@ class ExtensionSeleniumController{
             }
         };
         this.__sendMessage(data).then( res => {
-            console.log(data);
-            console.log(res);
+            //console.log(data);
+            //console.log(res);
         })
         .catch( res =>{
             that.__error(res);
@@ -134,8 +134,7 @@ class ExtensionSeleniumController{
         let startingCommand = this.__getStartingCommands();
         this.getCommands().then(res => {
             for(let i=startingCommand.commands.length;i<res.commands.length;i++){   
-                if(res.commands[i].command=="open" || res.commands[i].command=="setWindowSize"){
-                    console.log(res.commands[i]);
+                if(res.commands[i].command=="open" || res.commands[i].command=="setWindowSize"){                
                     continue;   
                 }       
                 that.deleteCommandId(res.commands[i].id);
