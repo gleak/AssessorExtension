@@ -134,7 +134,10 @@ class ExtensionSeleniumController{
         let startingCommand = this.__getStartingCommands();
         this.getCommands().then(res => {
             for(let i=startingCommand.commands.length;i<res.commands.length;i++){   
-                console.log(res.commands[i].id);             
+                if(res.commands[i].command=="open" || res.commands[i].command=="setWindowSize"){
+                    console.log(res.commands[i]);
+                    continue;   
+                }       
                 that.deleteCommandId(res.commands[i].id);
             }
         });
