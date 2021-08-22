@@ -11,9 +11,7 @@ document.addEventListener('keydown',(event)=>{
     break;
     case "F4":
       stopRecordingPO();
-    break;
-    default:
-      console.log(name);
+    break;   
   }  
 },true);
 
