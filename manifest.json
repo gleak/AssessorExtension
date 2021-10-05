@@ -1,6 +1,6 @@
 {
   "manifest_version":2,
-  "name": "Selenium IDE PageObject",
+  "name": "Assessor",
   "version": "1.0.0",
   "icons": {
     "70": "icons/icon_70.png",
@@ -12,7 +12,7 @@
       "32": "icons/icon_menu32.png",
       "64": "icons/icon_menu64.png"
     },
-    "default_title": "Selenium IDE - Ext"
+    "default_title": "Assessor"
   },
   "permissions": [
     "tabs",
