@@ -120,9 +120,7 @@ class ExtensionSeleniumController{
                 id: id
             }
         };
-        this.__sendMessage(data).then( res => {
-            //console.log(data);
-            //console.log(res);
+        this.__sendMessage(data).then( res => {         
         })
         .catch( res =>{
             that.__error(res);
@@ -152,12 +150,12 @@ class ExtensionSeleniumController{
             throw new Error("Method name is empty or null")          
         }
         this.clearCommandFromStartingPoint();
-        this.recordCommand("echo",`{SeleniumIDEExt}:${pageObject}:${methodName}`,"",false);
+        this.recordCommand("echo",`{ASSESSOR}:${pageObject}:${methodName}`,"",false);
         return true;
     }
 
     stopRecordPO(){     
-        this.recordCommand("echo",`{SeleniumIDEExt}backToMain`,"",false);
+        this.recordCommand("echo",`{ASSESSOR}backToMain`,"",false);
         return true;
     }
 }
